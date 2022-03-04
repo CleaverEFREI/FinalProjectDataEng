@@ -3,6 +3,7 @@ import sys
 import requests
 
 app = Flask(__name__)
+pytest_plugins = ["docker_compose"]
 
 try:    
     from detoxify import Detoxify

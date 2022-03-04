@@ -8,6 +8,8 @@ from requests import Session
 pytest_plugin = ["docker_compose"]
 
 
+
+# Invoking this fixture: 'function_scoped_container_getter' starts all services
 @pytest.fixture(name="homepage")
 def fixture_homepage(function_scoped_container_getter) -> str:
     """
@@ -24,8 +26,8 @@ def fixture_homepage(function_scoped_container_getter) -> str:
     print("Info service :", base_url, file=sys.stderr)
 
     retry = Retry(
-        total=5,
-        backoff_factor=0.1,
+        total=8,
+        backoff_factor=0.5,
         status_forcelist=[500, 502, 503, 504],
     )
 
