@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import sys
 import requests
 
@@ -7,6 +7,7 @@ app = Flask(__name__)
 try:    
     from detoxify import Detoxify
     error_install = False
+    prediction = Detoxify('original').predict('')
 except:
     error_install = True
     def call_API(inp):
@@ -72,10 +73,18 @@ def predict():
         prediction = Detoxify('original').predict(r)
     
     pred_v = 0.5
-    pred = 'Not toxic :)'
-    for i in range(len(prediction)):
-        if prediction[i]['score'] > pred_v:
-            pred = prediction[i]['label'] 
+    pred = []
+    for i in range(len(prediction)):        
+        if prediction[list(prediction.keys())[i]] > pred_v:
+            pred.append(list(prediction.keys())[i])
+
+    if len(pred) ==0:
+        pred = 'Not toxic :)'
+    else:
+        pred = ' and '.join(pred)
+        pred = pred.replace('and', ',', pred.count("and") - 1).replace('_',' ')
+
+
 
     if debug :
         return render_template("index.html",prediction_text = 'The sentence "{}" is {}. {} '.format(r,pred,prediction))
