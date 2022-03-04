@@ -2,3 +2,5 @@ flask
 pytest-docker-compose
 detoxify
 pytorch-lightning
+anyio
+grequests
