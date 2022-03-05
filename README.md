@@ -36,7 +36,7 @@ It's possible that pytest with plugin has some problems with some version of doc
 
 <div align="center">
   <sub>Project made with ❤︎ by
-  <a href="https://github.com/CleaverEFREI">Louis Gailhac</a>
+  <a href="https://github.com/CleaverEFREI">Louis Gailhac</a> & Elodie Gueret & Vianney Gonnot
 </div>
 
 ## Organization:
