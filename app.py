@@ -52,7 +52,8 @@ def index():
 def health_check():
     """
     Used to verify that the app is up and running
-    """
+    """    
+    p = Detoxify('original').predict('')
     return "ok"
 
 
@@ -94,3 +95,4 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0', threaded=True)
+    
