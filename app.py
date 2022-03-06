@@ -1,9 +1,16 @@
 from flask import Flask, render_template, request
-import sys
+from prometheus_flask_exporter import PrometheusMetrics
 import requests
+import time
+import sys
+
 
 app = Flask(__name__)
 pytest_plugins = ["docker_compose"]
+metrics = PrometheusMetrics(app)
+
+# static information as metric
+metrics.info('app_info', 'Application info', version='1.0.0')
 
 try:    
     from detoxify import Detoxify
@@ -45,6 +52,7 @@ def index():
     """
     Render the index base template
     """
+    start = time.time()
     return render_template('index.html')
 
 
