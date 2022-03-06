@@ -1,5 +1,15 @@
 version: "3.3"
 services:
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+  prometheus-node:
+    image: prom/node-exporter
+    container_name: prometheus-node
+    ports:
+      - "9095:9095"
   web:
     build: .
     ports:
