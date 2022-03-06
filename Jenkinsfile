@@ -8,8 +8,7 @@ pipeline {
             }
         }
         stage('Testing') {
-            withPythonEnv('python3') {
-                bat 'pip install pytest'
+            steps{
                 bat 'pytest'
             }
         }
