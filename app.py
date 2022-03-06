@@ -1,14 +1,16 @@
 from flask import Flask, render_template, request
-from prometheus_client import start_http_server , Counter, Histogram
-import sys
+from prometheus_flask_exporter import PrometheusMetrics
 import requests
 import time
+import sys
 
-REQUESTS = Counter('counter_total', 'Page requested counter.')
-LATENCY = Histogram('latency_seconds', 'Time for a request.')
 
 app = Flask(__name__)
 pytest_plugins = ["docker_compose"]
+metrics = PrometheusMetrics(app)
+
+# static information as metric
+metrics.info('app_info', 'Application info', version='1.0.0')
 
 try:    
     from detoxify import Detoxify
@@ -51,8 +53,6 @@ def index():
     Render the index base template
     """
     start = time.time()
-    REQUESTS.inc()
-    LATENCY.observe(time.time() - start)
     return render_template('index.html')
 
 
@@ -102,6 +102,5 @@ def predict():
         return render_template("index.html",prediction_text = 'The sentence "{}" is {}.'.format(r,pred))
 
 if __name__ == "__main__":
-    start_http_server(8010)
     app.run(debug=True,host='0.0.0.0', threaded=True)
     

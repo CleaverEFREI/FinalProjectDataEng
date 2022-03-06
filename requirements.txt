@@ -1,4 +1,4 @@
 flask
 pytest-docker-compose
 detoxify
-Prometheus-client
+prometheus-flask-exporter

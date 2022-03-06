@@ -6,6 +6,8 @@ ENV FLASK_RUN_HOST=0.0.0.0
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 EXPOSE 5000
-EXPOSE 8010
+EXPOSE 9090
+EXPOSE 9095
+EXPOSE 9093
 COPY . .
 CMD ["flask", "run"]
