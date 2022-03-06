@@ -1,9 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Stop running Docker Image') {
+        stage('Stop running Docker Image and rerun') {
             steps {
                 bat 'docker-compose down'
+                bat 'docker-compose up'
             }
         }
         stage('Testing') {
