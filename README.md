@@ -160,9 +160,22 @@ Add rules and alerts where you see fit, here are some examples:
 - Alert when your system is down for more than a specific period of time
 
 Use Grafana as the monitoring dashboard.
-
 One nice example to have is to visualize the different monitored metrics during the stress test.
 
 
 ### 5. Tutorial for lauch web app
+
+For lauching this project, you will to follow the following steps :
+
+run this command in a new terminal, in the project repository
+
+```
+docker run -dp 5000:5000 [name_image]
+```
+Once it's done you should go to http://localhost:5000.
+Normaly you should be able to see our project page.
+![alt text](git@github.com:CleaverEFREI/FinalProjectDataEng.git/Images/site.PNG?raw=true)
+Now, you are free to test any sentences you want, our program will tell you if it is toxic or not.
+
+
 
