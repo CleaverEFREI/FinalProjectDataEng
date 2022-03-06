@@ -15,7 +15,6 @@ metrics.info('app_info', 'Application info', version='1.0.0')
 try:    
     from detoxify import Detoxify
     error_install = False
-    prediction = Detoxify('original').predict('')
 except:
     error_install = True
     def call_API(inp):
@@ -52,7 +51,6 @@ def index():
     """
     Render the index base template
     """
-    start = time.time()
     return render_template('index.html')
 
 
