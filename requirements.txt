@@ -1,6 +1,3 @@
 flask
 pytest-docker-compose
 detoxify
-pytorch-lightning
-pytest-trio
-grequests
