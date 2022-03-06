@@ -164,5 +164,5 @@ Use Grafana as the monitoring dashboard.
 One nice example to have is to visualize the different monitored metrics during the stress test.
 
 
-### Tutorial for lauch web app
+### 5. Tutorial for lauch web app
 
