@@ -1,20 +1,31 @@
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-<br>
-<h1>Data Enginering Final Project</h1>
-<br>
-<br>
+
+<!-- Our title --> 
 <head>
-<link rel="stylesheet"  type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet"  type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+
+  <h1>Data Enginering Final Project</h1>
 </head>
 
-<form action="{{ url_for('predict')}}"method="POST">
-  <input type="text" name="inputdata" id="inputdata" required="required">
-  <label for="inputdata">Input Here</label>
-  <br>
-  <br>
-  <input type="submit" value="Submit">
-</form>
-<h2>{{ prediction_text }}</h2>
+<!-- The corpse of the page with the input --> 
+<body>
+  <form action="{{ url_for('predict')}}"method="POST">
+    <input type="text" name="inputdata" id="inputdata" required="required">
+    <label for="inputdata">Input Here</label>
+    <br>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+  <h2>{{ prediction_text }}</h2>
+</body>
+<footer>
+  <h2>by Louis GAILHAC, Vianney GONNOT and Elodie GUEURET</h2>
+</footer>
+
+<!-- The script that predict if the text is toxic or not --> 
 <script>
 $('input[type="text"]').blur(function() {
  if ($(this).val() !== "") {
