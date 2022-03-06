@@ -4,20 +4,21 @@ pipeline {
         stage('Stop running Docker Image and rerun') {
             steps {
                 bat 'docker-compose down'
-                bat 'docker-compose up'
+                bat 'docker-compose up --build -d'
             }
         }
         stage('Testing') {
-            steps {
+            withPythonEnv('python3') {
+                bat 'pip install pytest'
                 bat 'pytest'
             }
         }
-        stage('Switching to release branch') {
+        stage('Switching branch') {
             steps {
                 bat 'git checkout release'
             }
         }
-        stage('Deliver') {
+        stage('Push release to git') {
             steps {
                 bat 'git add .'
                 bat 'git diff --quiet && git diff --staged --quiet || git commit -am "Change for release"'
