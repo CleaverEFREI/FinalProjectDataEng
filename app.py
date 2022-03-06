@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 import sys
 import requests
-import asyncio
 
 app = Flask(__name__)
 pytest_plugins = ["docker_compose"]
