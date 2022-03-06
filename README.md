@@ -174,7 +174,9 @@ docker run -dp 5000:5000 [name_image]
 ```
 Once it's done you should go to http://localhost:5000.
 Normaly you should be able to see our project page.
+  
 ![alt text](https://github.com/CleaverEFREI/FinalProjectDataEng/blob/main/Images/site.PNG?raw=true)
+  
 Now, you are free to test any sentences you want, our program will tell you if it is toxic or not.
 
 
