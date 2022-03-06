@@ -5,12 +5,12 @@ services:
     container_name: prometheus
     ports:
       - "9090:9090"
-      
+
   prometheus-node:
     image: prom/node-exporter
     container_name: prometheus-node
     ports:
-      - "9095:9095"      
+      - "9100:9100"      
     pid: host
 
   web:
@@ -29,6 +29,11 @@ services:
   grafana:
     image: grafana/grafana
     container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
+      - GF_USERS_ALLOW_SIGN_UP=false
+    restart: unless-stopped
     ports:
       - "3000:3000"
     depends_on:
