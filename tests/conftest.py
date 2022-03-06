@@ -8,7 +8,6 @@ import time
 pytest_plugin = ["docker_compose"]
 
 
-
 # Invoking this fixture: 'function_scoped_container_getter' starts all services
 @pytest.fixture(name="homepage")
 def fixture_homepage(function_scoped_container_getter) -> str:
@@ -17,9 +16,9 @@ def fixture_homepage(function_scoped_container_getter) -> str:
     """
 
     time.sleep(10)
-    service = function_scoped_container_getter.get('web').network_info[0]
+    service = function_scoped_container_getter.get("web").network_info[0]
 
-    if service.hostname == '0.0.0.0':
+    if service.hostname == "0.0.0.0":
         base_url = f"http://localhost:{service.host_port}"
     else:
         base_url = f"http://{service.hostname}:{service.host_port}"
@@ -33,8 +32,8 @@ def fixture_homepage(function_scoped_container_getter) -> str:
     )
 
     session = Session()
-    session.mount('http://', HTTPAdapter(max_retries=retry))
+    session.mount("http://", HTTPAdapter(max_retries=retry))
 
-    assert session.get(f'{base_url}/health_check').text == 'ok'
+    assert session.get(f"{base_url}/health_check").text == "ok"
 
     return base_url
