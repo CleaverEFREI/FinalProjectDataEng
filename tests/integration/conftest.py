@@ -3,7 +3,7 @@ import sys
 from urllib3.util.retry import Retry
 from requests.adapters import HTTPAdapter
 from requests import Session
-
+import time
 
 pytest_plugin = ["docker_compose"]
 
@@ -16,6 +16,7 @@ def fixture_homepage(function_scoped_container_getter) -> str:
     Fixture using plugin https://github.com/todofixthis/pytest-docker-compose for interact with Docker containers
     """
 
+    time.sleep(10)
     service = function_scoped_container_getter.get('web').network_info[0]
 
     if service.hostname == '0.0.0.0':
