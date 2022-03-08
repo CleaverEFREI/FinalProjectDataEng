@@ -46,13 +46,6 @@ It's possible that pytest with plugin has some problems with some version of doc
 
 ## Final Docker Image :
 https://hub.docker.com/r/efreicleaver/XXX
-
-  <img src="">
-  
-  
-Model accuracy:
-
-<img src="">
   
 ## 1. User Stories
 
