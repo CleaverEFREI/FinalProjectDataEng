@@ -45,7 +45,7 @@ It's possible that pytest with plugin has some problems with some version of doc
 </div>
 
 ## Final Docker Image :
-https://hub.docker.com/r/efreicleaver/XXX
+https://hub.docker.com/repository/docker/vianneygonnot/finalprojectdataeng
   
 ## 1. User Stories
 
