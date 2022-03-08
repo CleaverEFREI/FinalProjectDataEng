@@ -10,6 +10,7 @@ pipeline {
         stage('Testing') {
             steps {
                 bat 'pytest'
+                bat 'docker-compose down'
             }
         }
         stage('Switching branch') {
@@ -19,8 +20,10 @@ pipeline {
         }
         stage('Push release to git') {
             steps {
+                bat 'git config --global user.email "louis.gailhac@efrei.net"'
+                bat 'git config --global user.name "CleaverEFREI"'
                 bat 'git add .'
-                bat 'git diff --quiet && git diff --staged --quiet || git commit -am "Change for release"'
+                bat 'git diff --quiet && git diff --staged --quiet || git commit -am "JENKINS-$BUILD_ID"'
                 bat 'git push'
             }
         }
