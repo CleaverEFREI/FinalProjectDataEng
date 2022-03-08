@@ -7,14 +7,14 @@ pipeline {
                 bat 'docker-compose up --build -d'
             }
         }
-        stage('Testing') {
-            steps{
-                bat 'pytest'
-            }
-        }
         stage('Switching branch') {
             steps {
                 bat 'git checkout release'
+            }
+        }
+        stage('Testing') {
+            steps {
+                bat 'pytest'
             }
         }
         stage('Push release to git') {
