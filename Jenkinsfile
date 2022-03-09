@@ -18,9 +18,5 @@ pipeline {
                 bat 'git checkout -f release'
             }
         }
-        stage('Push release to git') {
-            steps {
-            }
-        }
     }
 }
