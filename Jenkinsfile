@@ -9,6 +9,7 @@ pipeline {
         }
         stage('Testing') {
             steps {
+                bat 'pip install pytest'
                 bat 'pytest'
                 bat 'docker-compose down'
             }
