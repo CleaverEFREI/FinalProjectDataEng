@@ -20,7 +20,7 @@ It's possible that pytest with plugin has some problems with some version of doc
       alt="license" />
   </a>
   <!-- Maintenance -->
-    <img src="https://img.shields.io/maintenance/yes/2022?style=for-the-badge"
+    <img src="https://img.shields.io/maintenance/no/2022?style=for-the-badge"
       alt="Maintenance" />
   <!-- Last Commit -->
   <a href="https://github.com/CleaverEFREI/FinalProjectDataEng/commit/main">
